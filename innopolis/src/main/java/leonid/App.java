@@ -1,4 +1,4 @@
-package Leonid;
+package leonid;
 
 import java.util.ArrayList;
 import java.util.List;
