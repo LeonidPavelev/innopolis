@@ -1,11 +1,18 @@
-package leonid;
+package leonid.controllers;
+
+import leonid.models.Product;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class App {
-    public static void main(String[] args) {
+@RestController
+public class Controller {
+
+    @GetMapping("/ping")
+    public String ping() {
         Product water = new Product();
         water.setId(UUID.randomUUID());
         water.setDescription("Water");
@@ -16,5 +23,6 @@ public class App {
         products.add(water);
         products.add(chocolate);
         System.out.println(products);
+        return products.toString();
     }
 }

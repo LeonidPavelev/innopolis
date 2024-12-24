@@ -1,4 +1,4 @@
-package leonid;
+package leonid.models;
 
 import lombok.*;
 
