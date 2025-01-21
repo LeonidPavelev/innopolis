@@ -6,7 +6,7 @@
 
     <groupId>org.exaple</groupId>
     <artifactId>attestation01</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -57,7 +57,7 @@
                     <user>postgres</user>
                     <password>5432</password>
                     <schemas>
-                        <schema>onlineElectronicsStore</schema>
+                        <schema>online_electronics_store</schema>
                     </schemas>
                 </configuration>
             </plugin>

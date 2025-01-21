@@ -4,19 +4,17 @@ import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
+import java.sql.Timestamp;
 @Value
 @Builder
 @Jacksonized
-public class Products {
+public class Users {
 
-    Long productId;
+    int userId;
 
-    String productName;
+    String firstName;
 
-    String description;
+    String lastName;
 
-    Double price;
-
-    Integer stock;
-
+    Timestamp createdAt;
 }

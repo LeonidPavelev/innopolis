@@ -7,16 +7,15 @@ import lombok.extern.jackson.Jacksonized;
 @Value
 @Builder
 @Jacksonized
-public class Products {
+public class OrderItems {
 
-    Long productId;
+    int orderItemId;
 
-    String productName;
+    int orderId;
 
-    String description;
+    int productId;
 
-    Double price;
+    int quantity;
 
-    Integer stock;
-
+    double price;
 }
