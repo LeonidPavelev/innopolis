@@ -1,3 +1,4 @@
+--READ
 --Выбор всех пользователей:
 SELECT * FROM users;
 --Выбор всех товаров:
@@ -18,5 +19,26 @@ SELECT SUM(total_amount) AS total_sales FROM orders;
 SELECT DISTINCT users.first_name, users.last_name
 FROM users
          JOIN orders ON users.user_id = orders.user_id;
+
+--Создание индекса для быстрого поиска по имени пользователей:
+CREATE INDEX idx_user_name ON users (first_name, last_name);
+--UPDATE
+--Обновление цены продукта:
+UPDATE products SET price = 19.99 WHERE product_id = 1;
+--Обновление количества на складе после продажи товара:
+UPDATE products SET stock = stock - 5 WHERE product_id = 1;
+--Обновление информации о пользователе:
+UPDATE users SET last_name = 'Павельев' WHERE user_id = 1;
+--Обновление описания продукта:
+UPDATE products SET description = 'Updated Description' WHERE product_id = 1;
+--DELETE
+--Удаление пользователя по ID:
+DELETE FROM users WHERE user_id = 1;
+--Удаление товара по ID:
+DELETE FROM products WHERE product_id = 1;
+--Удаление всех заказов пользователя:
+DELETE FROM orders WHERE user_id = 1;
+--Удаление пользователей, не сделавших никаких заказов:
+DELETE FROM users WHERE user_id NOT IN (SELECT DISTINCT user_id FROM orders);
 
 

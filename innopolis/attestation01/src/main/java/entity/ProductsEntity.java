@@ -1,4 +1,4 @@
-package model;
+package entity;
 
 import lombok.Builder;
 import lombok.Value;
@@ -7,9 +7,9 @@ import lombok.extern.jackson.Jacksonized;
 @Value
 @Builder
 @Jacksonized
-public class Products {
+public class ProductsEntity {
 
-    Long productId;
+    int productId;
 
     String productName;
 

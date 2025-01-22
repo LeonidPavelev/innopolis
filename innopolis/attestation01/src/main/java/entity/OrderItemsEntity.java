@@ -1,21 +1,21 @@
-package model;
+package entity;
 
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
-import java.sql.Timestamp;
-
 @Value
 @Builder
 @Jacksonized
-public class Orders {
+public class OrderItemsEntity {
+
+    int orderItemId;
 
     int orderId;
 
-    int userId;
+    int productId;
 
-    Timestamp orderDate;
+    int quantity;
 
-    double totalAmount;
+    double price;
 }

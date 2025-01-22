@@ -1,49 +1,34 @@
 package innopolis;
 
 import config.JDBCTemplateLink;
-import model.Products;
-import model.Users;
+import entity.ProductsEntity;
+import entity.UsersEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import repository.OrdersRepository;
+import repository.ProductsRepository;
+import repository.UsersRepository;
+import repository.impl.OrdersRepositoryImpl;
+import repository.impl.ProductsRepositoryImpl;
+import repository.impl.UsersRepositoryImpl;
 
 import java.sql.Timestamp;
 import java.util.List;
 
 public class Main {
+    private static final ProductsRepository productsRepository = new ProductsRepositoryImpl();
 
-    private static final JdbcTemplate jdbcTemplate = JDBCTemplateLink.jdbcTemplate();
+    private static final UsersRepository usersRepository = new UsersRepositoryImpl();
+
+    private static final OrdersRepository ordersRepository = new OrdersRepositoryImpl();
 
     public static void main(String[] args) {
-
-        List<Products> products = jdbcTemplate.query("SELECT * FROM online_electronics_store.products", productsMapper);
-        List<Users> users = jdbcTemplate.query("SELECT * FROM online_electronics_store.users", usersMapper);
-
-        System.out.println(products);
-        System.out.println(users);
-
+        System.out.println(productsRepository.findAll());
+        System.out.println(usersRepository.findAll());
+        System.out.println(ordersRepository.findAll());
     }
 
-    private static final RowMapper<Products> productsMapper = (row, rowNumber) -> {
-        String productName = row.getString("product_name");
-        String description = row.getString("description");
-        double price = row.getDouble("price");
-        var stock = row.getInt("stock");
-        return Products.builder()
-                .productName(productName)
-                .description(description)
-                .price(price)
-                .stock(stock)
-                .build();
-    };
 
-    private static final RowMapper<Users> usersMapper = (row, rowNumber) -> {
-        String firstName = row.getString("first_name");
-        String lastName = row.getString("last_name");
-        Timestamp createdAt = row.getTimestamp("created_at");
-        return Users.builder()
-                .firstName(firstName)
-                .lastName(lastName)
-                .createdAt(createdAt)
-                .build();
-    };
+
+
 }

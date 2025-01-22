@@ -1,4 +1,4 @@
-package model;
+package entity;
 
 import lombok.Builder;
 import lombok.Value;
@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 @Value
 @Builder
 @Jacksonized
-public class Users {
+public class UsersEntity {
 
     int userId;
 
