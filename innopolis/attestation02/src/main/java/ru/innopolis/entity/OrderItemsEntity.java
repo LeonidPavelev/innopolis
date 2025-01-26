@@ -1,4 +1,4 @@
-package entity;
+package ru.innopolis.entity;
 
 import lombok.*;
 import lombok.extern.jackson.Jacksonized;
@@ -6,7 +6,6 @@ import lombok.extern.jackson.Jacksonized;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package entity;
+package ru.innopolis.entity;
 
 import lombok.*;
 import lombok.extern.jackson.Jacksonized;
@@ -8,15 +8,14 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UsersEntity {
+public class OrdersEntity {
 
-    private Long userId;
+   private Long orderId;
 
-    private String firstName;
+   private Long userId;
 
-    private String lastName;
+   private Double totalAmount;
 }

@@ -1,6 +1,6 @@
-package repository;
+package ru.innopolis.repository;
 
-import entity.OrderItemsEntity;
+import ru.innopolis.entity.OrderItemsEntity;
 
 import java.util.List;
 

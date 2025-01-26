@@ -1,20 +1,17 @@
-package repository.impl;
+package ru.innopolis.repository.impl;
 
-import config.JDBCTemplateLink;
-import entity.UsersEntity;
+import ru.innopolis.config.JDBCTemplateConfig;
+import ru.innopolis.entity.UsersEntity;
 import org.springframework.jdbc.core.RowMapper;
-import repository.UsersRepository;
+import ru.innopolis.repository.UsersRepository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.List;
 
 public class UsersRepositoryImpl implements UsersRepository {
     @Override
     public UsersEntity saveUser(UsersEntity user) {
         String sql = "INSERT INTO online_electronics_store.users (first_name, last_name) VALUES (?, ?) RETURNING user_id";
-        Long userId = JDBCTemplateLink.jdbcTemplate().queryForObject(sql, new Object[]{user.getFirstName(), user.getLastName()}, Long.class);
+        Long userId = JDBCTemplateConfig.jdbcTemplate().queryForObject(sql, new Object[]{user.getFirstName(), user.getLastName()}, Long.class);
         user.setUserId(userId);
         return user;
     }
@@ -22,29 +19,29 @@ public class UsersRepositoryImpl implements UsersRepository {
     @Override
     public UsersEntity findById(int id) {
         String sql = "SELECT * FROM online_electronics_store.users WHERE user_id = ?";
-        return JDBCTemplateLink.jdbcTemplate().queryForObject(sql, new Object[]{id}, usersMapper);
+        return JDBCTemplateConfig.jdbcTemplate().queryForObject(sql, new Object[]{id}, usersMapper);
     }
 
     @Override
     public List<UsersEntity> findAll() {
-        return JDBCTemplateLink.jdbcTemplate().query("SELECT * FROM online_electronics_store.users", usersMapper);
+        return JDBCTemplateConfig.jdbcTemplate().query("SELECT * FROM online_electronics_store.users", usersMapper);
     }
 
     @Override
     public void updateUser(UsersEntity user) {
         String sql = "UPDATE online_electronics_store.users SET first_name = ?, last_name = ? WHERE user_id = ?";
-        JDBCTemplateLink.jdbcTemplate().update(sql, user.getFirstName(), user.getLastName(), user.getUserId());
+        JDBCTemplateConfig.jdbcTemplate().update(sql, user.getFirstName(), user.getLastName(), user.getUserId());
     }
 
     @Override
     public void deleteUserById(int userId) {
         String sql = "DELETE FROM online_electronics_store.users WHERE user_id = ?";
-        JDBCTemplateLink.jdbcTemplate().update(sql, userId);
+        JDBCTemplateConfig.jdbcTemplate().update(sql, userId);
     }
 
     @Override
     public void deleteAll() {
-        JDBCTemplateLink.jdbcTemplate().update("DELETE FROM online_electronics_store.users");
+        JDBCTemplateConfig.jdbcTemplate().update("DELETE FROM online_electronics_store.users");
     }
 
     private static final RowMapper<UsersEntity> usersMapper = (row, rowNumber) ->
