@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.exaple</groupId>
-    <artifactId>attestation01</artifactId>
+    <artifactId>attestation02</artifactId>
     <version>1.1</version>
 
     <properties>

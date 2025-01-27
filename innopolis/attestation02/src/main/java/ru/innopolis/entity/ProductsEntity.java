@@ -1,7 +1,6 @@
 package ru.innopolis.entity;
 
 import lombok.*;
-import lombok.extern.jackson.Jacksonized;
 
 @Getter
 @Setter

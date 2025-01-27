@@ -1,9 +1,6 @@
 package ru.innopolis.entity;
 
 import lombok.*;
-import lombok.extern.jackson.Jacksonized;
-
-import java.sql.Timestamp;
 
 @Getter
 @Setter
