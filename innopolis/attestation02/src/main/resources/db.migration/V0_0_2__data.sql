@@ -45,11 +45,11 @@ INSERT INTO order_items (order_id, product_id, quantity, price) VALUES
 (1, 5, 2, 149.99),   -- Алексей Прохоров buys Headphones JBL
 (2, 2, 1, 1299.99),  -- 'Андрей', 'Копов' buys Laptop
 (3, 3, 1, 399.99),   -- Алина', 'Сырова' buys Tablet
-(3, 5, 1, 149.99),   -- Алина', 'Сырова' buys Headphones
+(3, 5, 3, 149.99),   -- Алина', 'Сырова' buys Headphones
 (4, 1, 1, 699.99),   -- Леонид', 'Быстров' buys Smartphone
 (5, 4, 1, 399.99),   -- 'Павел', 'Кириллов' buys Tablet
-(6, 2, 1, 1299.99),  -- 'Аркадий', 'Чумаков' buys Laptop
+(6, 2, 4, 1299.99),  -- 'Аркадий', 'Чумаков' buys Laptop
 (7, 4, 1, 199.99),   -- 'Олег', 'Старакожев' buys Smartwatch
 (8, 5, 1, 149.99),   -- 'Антон', 'Шастун' buys Headphones
-(9, 6, 1, 899.99),   -- 'Наташа', 'Бякова' buys Camera
+(9, 6, 8, 899.99),   -- 'Наташа', 'Бякова' buys Camera
 (10, 10, 1, 49.99);   -- 'Денис', 'Пальцев' buys Mouse

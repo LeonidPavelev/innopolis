@@ -12,6 +12,8 @@ public interface OrderItemsRepository {
 
     List<OrderItemsEntity> findAll();
 
+    List<OrderItemsEntity> findAllByQuantity(int quantity);
+
     void update (OrderItemsEntity orderItem);
 
     void deleteById (Long orderItemId);

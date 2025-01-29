@@ -5,7 +5,9 @@ import ru.innopolis.entity.ProductsEntity;
 import org.springframework.jdbc.core.RowMapper;
 import ru.innopolis.repository.ProductsRepository;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductsRepositoryImpl implements ProductsRepository {
 
@@ -26,6 +28,20 @@ public class ProductsRepositoryImpl implements ProductsRepository {
     @Override
     public List<ProductsEntity> findAll() {
         return JDBCTemplateConfig.jdbcTemplate().query("SELECT * FROM online_electronics_store.products", productsMapper);
+    }
+
+    @Override
+    public List<ProductsEntity> findAllSortedByPrice() {
+        return findAll().stream()
+                .sorted(Comparator.comparingDouble(ProductsEntity::getPrice))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ProductsEntity> findAllByStockGreaterThan(int stock) {
+        return findAll().stream()
+                .filter(product -> product.getStock() > stock)
+                .collect(Collectors.toList());
     }
 
     @Override

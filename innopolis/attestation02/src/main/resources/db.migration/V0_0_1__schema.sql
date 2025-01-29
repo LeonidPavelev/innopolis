@@ -5,7 +5,7 @@ last_name VARCHAR(50) NOT NULL,                            -- Фамилия п�
 created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP           -- Дата и время создания записи (по умолчанию текущая дата и время)
 );
 
-COMMENT ON TABLE users IS 'Таблица пользователей.';
+COMMENT ON TABLE users IS 'Таблица пользователей (покупатели)';
 COMMENT ON COLUMN users.user_id IS 'Уникальный идентификатор пользователя.';
 COMMENT ON COLUMN users.first_name IS 'Имя пользователя.';
 COMMENT ON COLUMN users.last_name IS 'Фамилия пользователя.';

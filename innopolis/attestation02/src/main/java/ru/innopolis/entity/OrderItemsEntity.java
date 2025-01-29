@@ -16,7 +16,7 @@ public class OrderItemsEntity {
 
    private Long productId;
 
-   private Double quantity;
+   private Integer quantity;
 
    private Double price;
 }

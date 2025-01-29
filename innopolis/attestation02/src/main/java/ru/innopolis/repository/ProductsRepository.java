@@ -14,6 +14,10 @@ public interface ProductsRepository {
 
     void updateProduct(ProductsEntity productEntity);
 
+    List<ProductsEntity> findAllSortedByPrice();
+
+    List<ProductsEntity> findAllByStockGreaterThan(int stock);
+
     void deleteProductById(int id);
 
     void deleteAll();

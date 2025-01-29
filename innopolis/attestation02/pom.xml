@@ -16,6 +16,7 @@
         <lombok.version>1.18.36</lombok.version>
         <spring.data.jdbc.version>3.4.1</spring.data.jdbc.version>
         <postgresql.version>42.7.4</postgresql.version>
+        <junit.version>5.11.4</junit.version>
         <flyway.user>postgres</flyway.user>
         <flyway.password>5432</flyway.password>
         <flyway.schemas>online_electronics_store</flyway.schemas>
@@ -39,6 +40,12 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>

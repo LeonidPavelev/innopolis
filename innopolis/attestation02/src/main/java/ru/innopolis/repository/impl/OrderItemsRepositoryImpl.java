@@ -1,11 +1,12 @@
 package ru.innopolis.repository.impl;
 
+import org.springframework.jdbc.core.RowMapper;
 import ru.innopolis.config.JDBCTemplateConfig;
 import ru.innopolis.entity.OrderItemsEntity;
-import org.springframework.jdbc.core.RowMapper;
 import ru.innopolis.repository.OrderItemsRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OrderItemsRepositoryImpl implements OrderItemsRepository {
 
@@ -29,6 +30,13 @@ public class OrderItemsRepositoryImpl implements OrderItemsRepository {
         String sql = "SELECT * FROM online_electronics_store.order_items";
         return JDBCTemplateConfig.jdbcTemplate().query(sql, orderItemsMapper);
     }
+    
+    @Override
+    public List<OrderItemsEntity> findAllByQuantity(int quantity) {
+        return findAll().stream()
+                .filter(order -> order.getQuantity() == quantity)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public void update(OrderItemsEntity orderItem) {
@@ -50,7 +58,7 @@ public class OrderItemsRepositoryImpl implements OrderItemsRepository {
                     .orderItemId(row.getLong("order_item_id"))
                     .orderId(row.getLong("order_id"))
                     .productId(row.getLong("product_id"))
-                    .quantity(row.getDouble("quantity"))
+                    .quantity(row.getInt("quantity"))
                     .price(row.getDouble("price"))
                     .build();
 }

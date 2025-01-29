@@ -1,0 +1,10 @@
+service:
+  postgres:
+    image: postgres:latest
+    container_name: docker-postgres-innopolis
+    environment:
+      POSTGRES_DB: online_electronics_store
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
