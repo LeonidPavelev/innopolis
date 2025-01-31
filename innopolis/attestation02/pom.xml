@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         <lombok.version>1.18.36</lombok.version>
-        <spring.data.jdbc.version>3.4.1</spring.data.jdbc.version>
+        <spring.version>3.4.2</spring.version>
         <postgresql.version>42.7.4</postgresql.version>
         <junit.version>5.11.4</junit.version>
         <flyway.user>postgres</flyway.user>
@@ -34,17 +34,18 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jdbc</artifactId>
-            <version>${spring.data.jdbc.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

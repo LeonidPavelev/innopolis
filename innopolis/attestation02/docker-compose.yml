@@ -1,10 +1,11 @@
-service:
+version: '3.8'
+services:
   postgres:
     image: postgres:latest
     container_name: docker-postgres-innopolis
     environment:
       POSTGRES_DB: online_electronics_store
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: 5432
     ports:
       - "5432:5432"

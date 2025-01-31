@@ -12,6 +12,10 @@ public interface UsersRepository {
 
     List<UsersEntity> findAll();
 
+    List<UsersEntity> findAllSortedByFirstName();
+
+    List<UsersEntity> findAllSortedByLastName();
+
     void updateUser(UsersEntity userEntity);
 
     void deleteUserById (int id);
