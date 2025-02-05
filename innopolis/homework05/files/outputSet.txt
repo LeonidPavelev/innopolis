@@ -1,0 +1,9 @@
+Исходное множество: [nine, six, four, one, seven, ten, two, three, five, eight]
+Множество после добавления пяти элементов: [nine, fifteen, six, one, seven, two, three, thirteen, eight, fourteen, four, twelve, eleven, ten, five]
+Элементы множества: [nine, fifteen, six, one, seven, two, three, thirteen, eight, fourteen, four, twelve, eleven, ten, five]
+Множество после попытки добавления существующего элемента: [nine, fifteen, six, one, seven, two, three, thirteen, eight, fourteen, four, twelve, eleven, ten, five]
+Содержит ли множество элемент 'one': true
+Множество после удаления элемента 'ten': [nine, fifteen, six, one, seven, two, three, thirteen, eight, fourteen, four, twelve, eleven, five]
+Количество элементов в множестве: 14
+Множество после удаления всех элементов: []
+Является ли множество пустым: true
