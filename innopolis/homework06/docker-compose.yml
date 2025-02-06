@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: homework06
+    volumes:
+      - ./files/:/files/
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

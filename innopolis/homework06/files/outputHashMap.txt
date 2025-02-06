@@ -1,0 +1,72 @@
+Исходный Коллекция: {plum=black, orange=indigo, papaya=pink, apple=iphone, pear=yellow, lemon=white, kiwi=green, grapefruit=blue, lime=purple, peach=red, guava=violet}
+Коллекция после добавления 5 элементов: {plum=black, papaya=pink, kiwi=green, lime=purple, peach=red, toad=small, orange=indigo, horse=racing, apple=iphone, mouse=small, pear=yellow, lemon=white, whale=big, grapefruit=blue, guava=violet, dog=big}
+Прямой перебор коллекции:
+plum => black
+papaya => pink
+kiwi => green
+lime => purple
+peach => red
+toad => small
+orange => indigo
+horse => racing
+apple => iphone
+mouse => small
+pear => yellow
+lemon => white
+whale => big
+grapefruit => blue
+guava => violet
+dog => big
+После добавления нового элемента с существующим ключом:
+plum => black
+papaya => pink
+kiwi => green
+lime => purple
+peach => red
+toad => small
+orange => indigo
+horse => racing
+apple => iphone
+mouse => new_value
+pear => yellow
+lemon => white
+whale => big
+grapefruit => blue
+guava => violet
+dog => big
+Список всех ключей:
+plum
+papaya
+kiwi
+lime
+peach
+toad
+orange
+horse
+apple
+mouse
+pear
+lemon
+whale
+grapefruit
+guava
+dog
+Количество уникальных значений: 15
+Содержит ли коллекция ключ toad? true
+Содержит ли коллекция значение black? true
+Количество элементов в коллекции: 16
+После удаления элемента по ключу и значению:
+plum => black
+papaya => pink
+kiwi => green
+lime => purple
+peach => red
+toad => small
+orange => indigo
+horse => racing
+apple => iphone
+pear => yellow
+lemon => white
+whale => big
+guava => violet
+dog => big

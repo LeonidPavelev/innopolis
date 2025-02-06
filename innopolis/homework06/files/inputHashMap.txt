@@ -1,0 +1,1 @@
+apple:iphone, peach:red, pear:yellow, plum:black, grapefruit:blue, guava:violet, lime:purple, lemon:white, kiwi:green, orange:indigo, papaya:pink
