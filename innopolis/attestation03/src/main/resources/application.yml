@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/task_manager
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+
+jwt:
+  secret: HVxH3cR8RVK8dzq4YVP5UxTOmQz2fTusVxJg261bRjc4xgdFy8VsXV3sgpi7T1YDKbusm3ROZCvQUf0sLRJqWQ==
+  expiration-ms: 86400000
+logging:
+  level:
+    org:
+      springframework:
+        security: trace
+        web: debug
+        http:
+          converter: trace
+    ru:
+      innopolis: debug
+    io:
+      jsonwebtoken: debug
+server:
+  port: 8080
