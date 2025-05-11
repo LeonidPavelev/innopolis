@@ -1,0 +1,68 @@
+package ru.innopolis.service.impl;
+
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import ru.innopolis.dto.UserDto;
+import ru.innopolis.entity.Role;
+import ru.innopolis.entity.User;
+import ru.innopolis.repository.RoleRepository;
+import ru.innopolis.repository.UserRepository;
+import ru.innopolis.service.UserService;
+import ru.innopolis.utils.Constants;
+
+import java.util.Collections;
+
+@Service
+@RequiredArgsConstructor
+public class UserServiceImpl implements UserService {
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    @Override
+    @Transactional
+    public User registerNewUser(UserDto userDto) {
+        if (existsByUsername(userDto.getUsername())) {
+            throw new RuntimeException("Username already exists");
+        }
+        if (existsByEmail(userDto.getEmail())) {
+            throw new RuntimeException("Email already exists");
+        }
+
+        User user = new User();
+        user.setUsername(userDto.getUsername());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setEmail(userDto.getEmail());
+        user.setEnabled(true);
+
+        Role userRole = roleRepository.findByName(Constants.DEFAULT_ROLE)
+                .orElseThrow(() -> new RuntimeException("Role not found"));
+        user.setRoles(Collections.singleton(userRole));
+
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
+}
