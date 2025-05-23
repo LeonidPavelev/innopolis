@@ -1,0 +1,12 @@
+Figure: Circle
+Perimeter: 31.41592653589793
+
+Figure: Square
+Perimeter: 16.0
+
+Figure: Rectangle
+Perimeter: 14.0
+
+Figure: Ellipse
+Perimeter: 25.90623668683038
+
