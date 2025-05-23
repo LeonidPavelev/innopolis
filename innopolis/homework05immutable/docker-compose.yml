@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  app:
+    build: .
+    container_name: homework05immutable
+    volumes:
+      - ./files/:/files/
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
