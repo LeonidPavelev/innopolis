@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wordle Race</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #game-area {
+            display: none;
+        }
+        #name-form {
+            margin-bottom: 20px;
+        }
+        #current-player-info {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #e9f7ef;
+            border-radius: 5px;
+            border-left: 4px solid #4CAF50;
+            display: none;
+        }
+        .player {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        .current-player {
+            border-left: 4px solid #4CAF50;
+            background-color: #e9f7ef;
+        }
+        .winner {
+            background-color: #d4edda;
+        }
+        #guess-input {
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Wordle Race</h1>
+
+<div id="current-player-info">
+    <strong>Вы играете как: </strong><span id="player-name-display"></span>
+</div>
+
+<div id="name-form">
+    <input type="text" id="player-name" placeholder="Введите ваше имя">
+    <button onclick="connectToGame()">Начать игру</button>
+</div>
+
+<div id="game-area">
+    <input type="text" id="guess-input" placeholder="Введите 5-буквенное слово">
+    <button onclick="sendGuess()">Отправить</button>
+    <div id="game-state"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.1/dist/sockjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+<script src="/js/game.js"></script>
+</body>
+</html>
