@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      auto-offset-reset: earliest
+      group-id: error-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+app:
+  kafka:
+    error-topic: error-events
+
+jwt:
+  secret: HVxH3cR8RVK8dzq4YVP5UxTOmQz2fTusVxJg261bRjc4xgdFy8VsXV3sgpi7T1YDKbusm3ROZCvQUf0sLRJqWQ==
+  expiration-ms: 86400000
+logging:
+  level:
+    org:
+      apache:
+        kafka: debug
+      springframework:
+        kafka: debug
+        security: trace
+        web: debug
+        http:
+          converter: trace
+    ru:
+      innopolis: debug
+    io:
+      jsonwebtoken: debug
+server:
+  port: 8080
